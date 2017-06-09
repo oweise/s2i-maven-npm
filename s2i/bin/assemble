@@ -1,0 +1,20 @@
+#!/bin/bash -e
+. $(dirname $0)/common.sh
+
+# restore build artifacts
+manage_incremental_build
+
+cp -Rf /tmp/src/. .
+if [ -f ./mvnsettings.xml ]; then
+   mvn -s ./mvnsettings.xml -B clean install
+else
+   mvn -B clean install
+fi
+
+
+
+mkdir -p /opt/app-root/www
+cp -r ./src/javascript/* /opt/app-root/www
+if [ -f ./src/nginx ]; then
+    cp -R ./src/nginx/* /etc/nginx/default.d/
+fi

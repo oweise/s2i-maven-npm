@@ -1,0 +1,12 @@
+#!/bin/bash -e
+
+cat <<EOF
+Builder image for Maven-built JavaScript Apps (AngularJS for example) also using NPM in the build process
+
+The rules:
+- Position your JavaScript app in src/javascript in your sources
+- Use a maven pom.xml at the root containing the build instructions (which may include calls to npm)
+- Place a file mvnsettings.xml in the project root to let the maven build use it as settings
+- Place additional NGINX config files into /src/web
+- The website will be served from /opt/app-root/www. You might want to mount anything inside there.
+EOF

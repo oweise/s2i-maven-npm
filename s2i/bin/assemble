@@ -11,8 +11,6 @@ else
    mvn -B clean install
 fi
 
-
-
 mkdir -p /opt/app-root/www
 cp -r ./src/javascript/* /opt/app-root/www
 if [ -f ./src/nginx ]; then

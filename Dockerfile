@@ -22,5 +22,3 @@ RUN chmod -R a+rwx /run
 USER 1001
 EXPOSE 8080
 CMD ["usage"]
-
-
